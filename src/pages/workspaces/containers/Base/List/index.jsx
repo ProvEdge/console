@@ -23,6 +23,7 @@ import { renderRoutes } from 'utils/router.config'
 
 import { Nav } from 'components/Layout'
 import Selector from 'workspaces/components/Selector'
+import RouteButton from 'components/Layout/RouteButton'
 
 @inject('rootStore', 'workspaceStore')
 @observer
@@ -64,17 +65,29 @@ class WorkspaceLayout extends Component {
     return (
       <div className="ks-page">
         <div className="ks-page-side">
-          <Selector
-            icon={detail.logo}
-            detail={detail}
-            onChange={this.enterWorkspace}
-          />
-          <Nav
-            className="ks-page-nav"
-            navs={globals.app.getWorkspaceNavs(this.workspace)}
-            location={location}
-            match={match}
-          />
+          <RouteButton icon="dashboard" title="Workbench" link="dashboard" />
+          {globals.app.getGlobalNavs().map(nav =>
+            nav.name === 'workspaces' ? (
+              <div>
+                <Selector
+                  icon={detail.logo}
+                  detail={detail}
+                  onChange={this.enterWorkspace}
+                />
+                <Nav
+                  className="ks-page-nav"
+                  navs={globals.app.getWorkspaceNavs(this.workspace)}
+                  location={location}
+                  match={match}
+                />
+              </div>
+            ) : (
+              <RouteButton icon={nav.icon} title={nav.title} link={nav.name} />
+            )
+          )}
+          {globals.app.enableAppStore && (
+            <RouteButton icon="appcenter" title="App Store" link="apps" />
+          )}
         </div>
         <div className="ks-page-main">{renderRoutes(this.getRoutes())}</div>
       </div>

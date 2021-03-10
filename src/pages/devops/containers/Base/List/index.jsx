@@ -23,6 +23,7 @@ import { Loading } from '@kube-design/components'
 import { renderRoutes } from 'utils/router.config'
 import { Nav } from 'components/Layout'
 import Selector from 'projects/components/Selector'
+import RouteButton from 'components/Layout/RouteButton'
 
 import styles from './index.scss'
 
@@ -58,24 +59,36 @@ class DevOpsListLayout extends Component {
     return (
       <div className="ks-page">
         <div className="ks-page-side">
-          <Selector
-            type="devops"
-            title={t('DevOps Project')}
-            detail={detail}
-            onChange={this.handleChange}
-            workspace={this.workspace}
-            cluster={this.cluster}
-          />
-          <Nav
-            className="ks-page-nav"
-            navs={globals.app.getDevOpsNavs({
-              devops: this.devops,
-              cluster: this.cluster,
-              workspace: this.workspace,
-            })}
-            location={location}
-            match={match}
-          />
+          <RouteButton icon="dashboard" title="Workbench" link="dashboard" />
+          {globals.app.getGlobalNavs().map(nav =>
+            nav.name === 'devops' ? (
+              <div>
+                <Selector
+                  type="devops"
+                  title={t('DevOps Project')}
+                  detail={detail}
+                  onChange={this.handleChange}
+                  workspace={this.workspace}
+                  cluster={this.cluster}
+                />
+                <Nav
+                  className="ks-page-nav"
+                  navs={globals.app.getDevOpsNavs({
+                    devops: this.devops,
+                    cluster: this.cluster,
+                    workspace: this.workspace,
+                  })}
+                  location={location}
+                  match={match}
+                />
+              </div>
+            ) : (
+              <RouteButton icon={nav.icon} title={nav.title} link={nav.name} />
+            )
+          )}
+          {globals.app.enableAppStore && (
+            <RouteButton icon="appcenter" title="App Store" link="apps" />
+          )}
         </div>
 
         <div className="ks-page-main">{renderRoutes(route.routes)}</div>
