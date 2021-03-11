@@ -64,22 +64,9 @@ class Header extends React.Component {
     const logo = globals.config.logo || '/assets/logo.svg'
 
     return (
-      <div
-        ref={innerRef}
-        className={classnames(
-          styles.header,
-          {
-            [styles.inAppsPage]: isAppsPage(),
-          },
-          className
-        )}
-      >
+      <div ref={innerRef} className={classnames(styles.header, className)}>
         <Link to={isAppsPage() && !globals.user ? '/apps' : '/'}>
-          <img
-            className={styles.logo}
-            src={isAppsPage() ? `/assets/login-logo.svg` : logo}
-            alt=""
-          />
+          <img className={styles.logo} src={logo} alt="" />
         </Link>
         <div className="header-bottom" />
         {/* this.isLoggedIn && (

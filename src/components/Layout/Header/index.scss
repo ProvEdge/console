@@ -4,16 +4,6 @@
   position: relative;
   height: $header-height;
   background-color: $body-bg-color;
-
-  &.inAppsPage {
-    background-color: rgba(24, 29, 40, 0.2);
-    :global {
-      .header-bottom {
-        border-style: none;
-        border-image: none;
-      }
-    }
-  }
 }
 
 :global {
@@ -41,14 +31,10 @@
 .logo {
   position: absolute;
   top: 50%;
-  left: 50%;
-  width: 150px;
-  height: 30px;
+  left: 120px;
+  width: 200px;
+  height: 40px;
   transform: translate(-50%, -50%);
-
-  .inAppsPage & {
-    color: white;
-  }
 }
 
 .navs {
@@ -60,14 +46,6 @@
 
     & + button {
       margin-left: 12px !important;
-    }
-
-    .inAppsPage & {
-      color: white;
-
-      &:hover {
-        color: $text-color;
-      }
     }
   }
 }
