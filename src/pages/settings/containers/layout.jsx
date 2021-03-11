@@ -22,6 +22,7 @@ import { renderRoutes } from 'utils/router.config'
 
 import { Nav } from 'components/Layout'
 import { Icon } from '@kube-design/components'
+import RouteButton from 'components/Layout/RouteButton'
 
 import styles from './layout.scss'
 
@@ -31,21 +32,33 @@ class AccessLayout extends Component {
     return (
       <>
         <div className="ks-page-side">
-          <div className={styles.titleWrapper}>
-            <div className={styles.icon}>
-              <Icon name="cogwheel" size={40} type="light" />
-            </div>
-            <div className={styles.text}>
-              <div className="h6">{t('Platform Settings')}</div>
-              <p>{t('PLATFORM_SETTINGS_SELECTOR_DESC')}</p>
-            </div>
-          </div>
-          <Nav
-            className="ks-page-nav"
-            navs={globals.app.getPlatformSettingsNavs()}
-            location={location}
-            match={match}
-          />
+          <RouteButton icon="dashboard" title="Workbench" link="dashboard" />
+          {globals.app.getGlobalNavs().map(nav =>
+            nav.name === 'settings' ? (
+              <div>
+                <div className={styles.titleWrapper}>
+                  <div className={styles.icon}>
+                    <Icon name="cogwheel" size={40} type="light" />
+                  </div>
+                  <div className={styles.text}>
+                    <div className="h6">{t('Platform Settings')}</div>
+                    <p>{t('PLATFORM_SETTINGS_SELECTOR_DESC')}</p>
+                  </div>
+                </div>
+                <Nav
+                  className="ks-page-nav"
+                  navs={globals.app.getPlatformSettingsNavs()}
+                  location={location}
+                  match={match}
+                />
+              </div>
+            ) : (
+              <RouteButton icon={nav.icon} title={nav.title} link={nav.name} />
+            )
+          )}
+          {globals.app.enableAppStore && (
+            <RouteButton icon="appcenter" title="App Store" link="apps" />
+          )}
         </div>
         <div className="ks-page-main">{renderRoutes(route.routes)}</div>
       </>
