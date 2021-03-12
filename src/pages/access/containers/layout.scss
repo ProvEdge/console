@@ -6,7 +6,7 @@
   margin-bottom: 20px;
   padding: 12px;
   border-radius: $border-radius;
-  background-color: #242e42;
+  background-color: $white;
   box-shadow: 0 8px 16px 0 rgba(36, 46, 66, 0.2);
 
   .icon {
@@ -15,6 +15,11 @@
     width: 40px;
     height: 40px;
     margin-right: 12px;
+
+    svg {
+      color: $dark-color06;
+      fill: $dark-color03;
+    }
   }
 
   .text {
@@ -25,12 +30,12 @@
     :global .h6 {
       font-family: $font-family-id;
       line-height: 1.43;
-      color: #ffffff;
+      color: $dark-color06;
       @include ellipsis;
     }
 
     p {
-      color: #d8dee5;
+      color: $dark-color04;
     }
   }
 }
