@@ -61,25 +61,12 @@ class Header extends React.Component {
 
   render() {
     const { className, innerRef /* location */ } = this.props
-    const logo = globals.config.logo || '/assets/logo.svg'
+    const logo = globals.config.logo || '/assets/login-logo.svg'
 
     return (
-      <div
-        ref={innerRef}
-        className={classnames(
-          styles.header,
-          {
-            [styles.inAppsPage]: isAppsPage(),
-          },
-          className
-        )}
-      >
+      <div ref={innerRef} className={classnames(styles.header, className)}>
         <Link to={isAppsPage() && !globals.user ? '/apps' : '/'}>
-          <img
-            className={styles.logo}
-            src={isAppsPage() ? `/assets/login-logo.svg` : logo}
-            alt=""
-          />
+          <img className={styles.logo} src={logo} alt="" />
         </Link>
         <div className="header-bottom" />
         {/* this.isLoggedIn && (

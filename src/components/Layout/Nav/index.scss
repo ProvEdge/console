@@ -18,7 +18,7 @@
       .title {
         display: block;
         padding: 7px 12px;
-        color: #4a5974;
+        color: $white;
         font-weight: 500;
         cursor: pointer;
 
@@ -30,6 +30,8 @@
           .icon {
             margin-right: 8px;
             vertical-align: text-bottom;
+            color: $white;
+            fill: $light-color08;
           }
 
           .kubed-icon-chevron-down {
@@ -52,16 +54,16 @@
       &:hover,
       &:active {
         & > a {
-          color: $primary;
+          color: $nav-secondary;
 
           :global .kubed-icon {
-            color: #00aa72;
-            fill: #90e0c5;
+            color: $nav-primary;
+            fill: $nav-secondary;
           }
 
           .devopsIcon {
-            color: #00aa72;
-            fill: #90e0c5;
+            color: $nav-primary;
+            fill: $nav-secondary;
           }
         }
 
@@ -88,13 +90,13 @@
         &:hover,
         &:active {
           & > a {
-            color: #4a5974;
+            color: $white;
             cursor: not-allowed;
           }
 
           :global .kubed-icon {
-            color: #324558;
-            fill: #b6c2cd;
+            color: $white;
+            fill: $light-color08;
           }
         }
 
@@ -135,14 +137,14 @@
       margin-top $trans-speed ease-in-out 0.1s, opacity $trans-speed ease-in-out;
 
     & > a {
-      color: #4a5974;
+      color: $white;
     }
 
     &.select,
     &:hover,
     &:active {
       & > a {
-        color: $primary;
+        color: $nav-secondary;
       }
     }
 
@@ -153,7 +155,7 @@
       &:hover,
       &:active {
         & > a {
-          color: #4a5974;
+          color: $white;
           cursor: not-allowed;
         }
       }

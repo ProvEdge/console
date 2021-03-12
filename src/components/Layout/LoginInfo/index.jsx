@@ -94,7 +94,7 @@ export default class LoginInfo extends Component {
   }
 
   render() {
-    const { className, isAppsPage } = this.props
+    const { className /* isAppsPage */ } = this.props
 
     if (!globals.user) {
       return (
@@ -121,14 +121,10 @@ export default class LoginInfo extends Component {
     return (
       <div className={classnames(styles.logined, className)}>
         <Dropdown content={this.renderDropDown()} placement="bottomRight">
-          <div
-            className={classnames(styles.name, {
-              [styles.isAppsPage]: isAppsPage,
-            })}
-          >
+          <div className={classnames(styles.name)}>
             <Icon name="human" />
             {globals.user.username}
-            <Icon name="caret-down" type={isAppsPage ? 'white' : 'dark'} />
+            <Icon name="caret-down" />
           </div>
         </Dropdown>
         {this.renderModals()}
