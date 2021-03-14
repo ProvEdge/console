@@ -27,6 +27,7 @@ import EmptyList from 'components/Cards/EmptyList'
 import AdminDashboard from './Admin'
 
 import styles from './index.scss'
+import RouteButton from '../../../../components/Layout/RouteButton'
 
 @inject('rootStore')
 class Dashboard extends React.Component {
@@ -112,10 +113,28 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div className={styles.dashboard}>
-        <div className={styles.wrapper}>
-          {this.renderHeader()}
-          {this.renderContent()}
+      <div className="ks-page">
+        <div className="ks-page-side">
+          <div className={styles.titleWrapper}>
+            <div className={styles.icon}>
+              <Icon name={'dashboard'} size={40} type="light" />
+            </div>
+            <div className={styles.text}>{t('Workbench')}</div>
+          </div>
+          {globals.app.getGlobalNavs().map(nav => (
+            <RouteButton icon={nav.icon} title={nav.title} link={nav.name} />
+          ))}
+          {globals.app.enableAppStore && (
+            <RouteButton icon="appcenter" title="App Store" link="apps" />
+          )}
+        </div>
+        <div className="ks-page-main">
+          <div className={styles.dashboard}>
+            <div className={styles.wrapper}>
+              {this.renderHeader()}
+              {this.renderContent()}
+            </div>
+          </div>
         </div>
       </div>
     )

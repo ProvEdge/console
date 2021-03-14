@@ -234,7 +234,8 @@ pre {
     padding: 0 12px 0 0;
     margin-right: -12px;
     z-index: 1;
-    height: calc(100vh - 188px);
+    //height: calc(100vh - 188px);
+    height: auto;
     overflow-y: auto;
   }
 

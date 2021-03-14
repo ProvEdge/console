@@ -21,7 +21,7 @@ import { inject, observer } from 'mobx-react'
 import { get } from 'lodash'
 
 import { renderRoutes } from 'utils/router.config'
-import { Nav } from 'components/Layout'
+import { Nav, RouteButton } from 'components/Layout'
 import Selector from 'projects/components/Selector'
 
 @inject('rootStore', 'projectStore')
@@ -62,17 +62,29 @@ class ProjectLayout extends Component {
     return (
       <div className="ks-page">
         <div className="ks-page-side">
-          <Selector
-            title={t('Projects')}
-            detail={detail}
-            onChange={this.handleChange}
-          />
-          <Nav
-            className="ks-page-nav"
-            navs={navs}
-            location={location}
-            match={match}
-          />
+          <RouteButton icon="dashboard" title="Workbench" link="dashboard" />
+          {globals.app.getGlobalNavs().map(nav =>
+            nav.name === 'projects' ? (
+              <div>
+                <Selector
+                  title={t('Projects')}
+                  detail={detail}
+                  onChange={this.handleChange}
+                />
+                <Nav
+                  className="ks-page-nav"
+                  navs={navs}
+                  location={location}
+                  match={match}
+                />
+              </div>
+            ) : (
+              <RouteButton icon={nav.icon} title={nav.title} link={nav.name} />
+            )
+          )}
+          {globals.app.enableAppStore && (
+            <RouteButton icon="appcenter" title="App Store" link="apps" />
+          )}
         </div>
         <div className="ks-page-main">{renderRoutes(this.getRoutes(navs))}</div>
       </div>

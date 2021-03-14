@@ -31,6 +31,7 @@ import { STORE_APP_LIMIT } from 'configs/openpitrix/app'
 
 import Banner from '../../components/Banner'
 import AppList from '../../components/AppList'
+import RouteButton from '../../../../components/Layout/RouteButton'
 
 import styles from './index.scss'
 
@@ -164,6 +165,15 @@ export default class Home extends React.Component {
 
     return (
       <div className={styles.cates} ref={this.cateRef}>
+        <RouteButton icon="dashboard" title="Workbench" link="dashboard" />
+        <div className={styles.titleWrapper}>
+          <div className={styles.icon}>
+            <Icon name="appcenter" size={40} type="light" />
+          </div>
+          <div className={styles.text}>
+            <div className="h6">{t('App Store')}</div>
+          </div>
+        </div>
         <div className={styles.group}>
           <p className={styles.title}>{t('Discoveries')}</p>
           <ul className={styles.menu}>
@@ -205,6 +215,9 @@ export default class Home extends React.Component {
             ))}
           </ul>
         </div>
+        {globals.app.getGlobalNavs().map(nav => (
+          <RouteButton icon={nav.icon} title={nav.title} link={nav.name} />
+        ))}
       </div>
     )
   }

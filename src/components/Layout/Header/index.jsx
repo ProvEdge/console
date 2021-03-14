@@ -61,7 +61,7 @@ class Header extends React.Component {
   }
 
   render() {
-    const { className, innerRef, location } = this.props
+    const { className, innerRef /* location */ } = this.props
     const logo = globals.config.logo || '/assets/logo.svg'
 
     return (
@@ -83,7 +83,7 @@ class Header extends React.Component {
           />
         </Link>
         <div className="header-bottom" />
-        {this.isLoggedIn && (
+        {/* this.isLoggedIn && (
           <div className={styles.navs}>
             {globals.app.enableGlobalNav && (
               <Button
@@ -117,7 +117,7 @@ class Header extends React.Component {
               {t('Workbench')}
             </Button>
           </div>
-        )}
+        ) */}
         <div className={styles.right}>
           {this.isLoggedIn && (
             <Dropdown content={this.renderDocumentList()}>
