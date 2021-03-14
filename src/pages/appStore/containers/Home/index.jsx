@@ -29,7 +29,7 @@ import PublishedAppStore from 'stores/openpitrix/store'
 import CategoryStore from 'stores/openpitrix/category'
 import { STORE_APP_LIMIT } from 'configs/openpitrix/app'
 
-import Banner from '../../components/Banner'
+// import Banner from '../../components/Banner'
 import AppList from '../../components/AppList'
 import RouteButton from '../../../../components/Layout/RouteButton'
 
@@ -229,10 +229,11 @@ export default class Home extends React.Component {
 
     return (
       <div className={styles.wrapper}>
+        {/* 
         <Banner className={styles.banner}>
           <h2 className={styles.title}>{t('App Store')}</h2>
           <p className={styles.desc}>{t('HOME_APP_STORE_DESC')}</p>
-        </Banner>
+        </Banner> */}
         {this.renderToolbar()}
         <div className={styles.body}>
           {this.renderCategories()}

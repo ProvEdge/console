@@ -23,6 +23,7 @@ $category-width: 220px;
     position: relative;
     height: calc(100vh - 340px);
     @extend %centerItem;
+    margin-top: $header-height;
 
     .apps {
       position: relative;
@@ -65,7 +66,7 @@ $category-width: 220px;
   position: relative;
   height: $toolbar-height;
   background: $light-color01;
-  top: -$header-height;
+  //top: -$header-height;
 
   .level {
     display: flex;
