@@ -3,22 +3,22 @@
 // --------------------------------------------------
 
 // init
-$dark-color01: #79879c;
-$dark-color02: #6b7b95;
-$dark-color03: #5f708a;
-$dark-color04: #4a5974;
-$dark-color05: #404e68;
-$dark-color06: #36435c;
-$dark-color07: #242e42;
-$dark-color08: #181d28;
-$light-color01: #f9fbfd;
-$light-color02: #eff4f9;
-$light-color03: #e3e9ef;
-$light-color04: #d8dee5;
-$light-color05: #d1d7df;
-$light-color06: #ccd3db;
-$light-color07: #c1c9d1;
-$light-color08: #abb4be;
+$dark-color01: #5358a1;
+$dark-color02: #373b5f;
+$dark-color03: #2a2a52;
+$dark-color04: #1d264b;
+$dark-color05: #0f0f35;
+$dark-color06: #0d0d28;
+$dark-color07: #03031a;
+$dark-color08: #000013;
+$light-color01: #fefefe;
+$light-color02: #fafafa;
+$light-color03: #f7f7f7;
+$light-color04: #f3f3f3;
+$light-color05: #eeeeee;
+$light-color06: #eaeaea;
+$light-color07: #e7e7e7;
+$light-color08: #e3e3e3;
 $green-color01: #c4e6d4;
 $green-color02: #a2d8bb;
 $green-color03: #55bc8a;
@@ -39,6 +39,11 @@ $yellow-color02: #ffc781;
 $yellow-color03: #f5a623;
 $yellow-color04: #e0992c;
 $yellow-color05: #8d663e;
+$magenta-color01: #fdc5ff;
+$magenta-color02: #fa6fff;
+$magenta-color03: #dd27e4;
+$magenta-color04: #c916cf;
+$magenta-color05: #ad04b3;
 $white: #ffffff;
 $black: #000000;
 
@@ -69,6 +74,9 @@ $placeholder-color: $dark-color03;
 $input-color: $dark-color07;
 $head-color: $dark-color07;
 
+$nav-primary: $magenta-color04;
+$nav-secondary: $magenta-color02;
+
 // border
 $border-color: $light-color06;
 $border-hover-color: $dark-color01;
@@ -88,6 +96,8 @@ $bg-color: $light-color02;
 $body-bg-color: $light-color02;
 $th-bg-color: $light-color01;
 $card-bg-color: $light-color01;
+$header-bg-color: $dark-color06;
+$nav-bg-color: $dark-color03;
 
 $btn-default-bg: $light-color02;
 $btn-default-border: $light-color06;

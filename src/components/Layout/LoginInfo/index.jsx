@@ -124,7 +124,7 @@ export default class LoginInfo extends Component {
           <div className={classnames(styles.name)}>
             <Icon name="human" />
             {globals.user.username}
-            <Icon name="caret-down" type={'dark'} />
+            <Icon name="caret-down" />
           </div>
         </Dropdown>
         {this.renderModals()}

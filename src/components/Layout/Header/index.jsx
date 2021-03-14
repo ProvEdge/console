@@ -62,7 +62,7 @@ class Header extends React.Component {
 
   render() {
     const { className, innerRef /* location */ } = this.props
-    const logo = globals.config.logo || '/assets/logo.svg'
+    const logo = globals.config.logo || '/assets/login-logo.svg'
 
     return (
       <div ref={innerRef} className={classnames(styles.header, className)}>

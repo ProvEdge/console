@@ -187,10 +187,10 @@ pre {
 
   &-side {
     position: fixed;
-    top: 88px;
-    width: $nav-width;
-    padding: 0 20px 40px 20px;
+    width: $nav-width;    height: calc(100vh - #{$header-height});
+    padding: 20px 20px 40px 20px;
     z-index: 201;
+    background-color: $nav-bg-color;
 
     @media (max-width: 1366px) {
       width: $narrow-nav-width;
@@ -242,11 +242,11 @@ pre {
   &-main {
     overflow-y: auto;
     overflow-x: hidden;
-    margin-left: $nav-width - 20px;
+    margin-left: $nav-width;
     padding: 20px;
 
     @media (max-width: 1366px) {
-      margin-left: $narrow-nav-width - 20px;
+      margin-left: $narrow-nav-width;
     }
   }
 }
