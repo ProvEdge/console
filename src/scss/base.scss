@@ -191,6 +191,7 @@ pre {
     padding: 20px 20px 40px 20px;
     z-index: 201;
     background-color: $nav-bg-color;
+    overflow-y: auto;
 
     @media (max-width: 1366px) {
       width: $narrow-nav-width;

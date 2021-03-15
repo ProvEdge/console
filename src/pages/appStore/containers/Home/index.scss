@@ -7,14 +7,8 @@ $category-width: 220px;
 
 %centerItem {
   width: 100vw;
-  padding: 0 24px;
   @media (max-width: 768px) {
     width: 1024px;
-  }
-  @media (min-width: 1164px) {
-    width: $content-width;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -27,9 +21,9 @@ $category-width: 220px;
 
     .apps {
       position: relative;
-      margin-left: $category-width + 20px;
+      margin-left: $category-width + 68px;
       @media (max-width: 768px) {
-        margin-left: $category-width + 20px;
+        margin-left: $category-width + 68px;
       }
 
       :global {
@@ -77,7 +71,7 @@ $category-width: 220px;
       line-height: 1.67;
       font-size: $size-small;
       font-weight: bold;
-      margin-left: calc(#{$category-width} + 20px);
+      margin-left: calc(#{$category-width} + 68px);
     }
 
     .search {
@@ -96,14 +90,17 @@ $category-width: 220px;
 
 .cates {
   position: absolute;
-  top: -40px;
-  width: $category-width;
+  top: -120px;
+  width: calc(#{$category-width} + 40px);
+  height: calc(100vh - #{$header-height});
+  background-color: $nav-bg-color;
+  padding: 20px 20px 0 20px;
 
   .group {
     margin-bottom: 28px;
 
     .title {
-      color: $dark-color06;
+      color: $white;
       font-weight: bold;
     }
     .menu {
@@ -115,7 +112,7 @@ $category-width: 220px;
         line-height: 20px;
         font-size: 12px;
         list-style: none;
-        color: $dark-color07;
+        color: $white;
         cursor: pointer;
 
         &:hover,
@@ -153,8 +150,8 @@ $category-width: 220px;
       margin-right: 12px;
 
       svg {
-        color: $dark-color06;
-        fill: $dark-color03;
+        color: $dark-color03;
+        fill: $dark-color01;
       }
     }
 

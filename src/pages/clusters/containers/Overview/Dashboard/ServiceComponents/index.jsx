@@ -82,25 +82,23 @@ export default class ServiceComponents extends Component {
         <div className={styles.icons}>
           {this.configs
             .filter(item => !item.disabled)
-            .map(item => (
-              <span key={item.type} data-tooltip={item.title}>
-                <Link to={`/clusters/${cluster}/components?type=${item.type}`}>
-                  {item.type === 'kubesphere' ? (
+            .map(item =>
+              item.type !== 'kubesphere' ? (
+                <span key={item.type} data-tooltip={item.title}>
+                  <Link
+                    to={`/clusters/${cluster}/components?type=${item.type}`}
+                  >
                     <Icon
                       name={COMPONENT_ICON_MAP[item.type]}
                       size={44}
                       clickable
                     />
-                  ) : (
-                    <Icon
-                      name={COMPONENT_ICON_MAP[item.type]}
-                      size={44}
-                      clickable
-                    />
-                  )}
-                </Link>
-              </span>
-            ))}
+                  </Link>
+                </span>
+              ) : (
+                <></>
+              )
+            )}
         </div>
       </Panel>
     )

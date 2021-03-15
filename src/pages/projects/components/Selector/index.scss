@@ -13,6 +13,11 @@
     display: inline-block;
     vertical-align: middle;
     margin-right: 12px;
+
+    svg {
+      color: $dark-color03;
+      fill: $dark-color01;
+    }
   }
 
   .text {
