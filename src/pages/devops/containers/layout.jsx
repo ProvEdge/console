@@ -103,36 +103,29 @@ class DevOpsLayout extends Component {
         <>
           <div className="ks-page-side">
             <RouteButton icon="dashboard" title="Workbench" link="dashboard" />
-            {globals.app.getGlobalNavs().map(nav =>
-              nav.name === 'devops' ? (
-                <div>
-                  <Selector
-                    type="devops"
-                    title={t('DevOps Project')}
-                    detail={data}
-                    onChange={this.handleChange}
-                    workspace={this.workspace}
-                    cluster={this.cluster}
-                  />
-                  <Nav
-                    className="ks-page-nav"
-                    navs={globals.app.getDevOpsNavs({
-                      devops: this.devops,
-                      cluster: this.cluster,
-                      workspace: this.workspace,
-                    })}
-                    location={location}
-                    match={match}
-                  />
-                </div>
-              ) : (
-                <RouteButton
-                  icon={nav.icon}
-                  title={nav.title}
-                  link={nav.name}
-                />
-              )
-            )}
+            <div>
+              <Selector
+                type="devops"
+                title={t('DevOps Project')}
+                detail={data}
+                onChange={this.handleChange}
+                workspace={this.workspace}
+                cluster={this.cluster}
+              />
+              <Nav
+                className="ks-page-nav"
+                navs={globals.app.getDevOpsNavs({
+                  devops: this.devops,
+                  cluster: this.cluster,
+                  workspace: this.workspace,
+                })}
+                location={location}
+                match={match}
+              />
+            </div>
+            {globals.app.getGlobalNavs().map(nav => (
+              <RouteButton icon={nav.icon} title={nav.title} link={nav.name} />
+            ))}
             {globals.app.enableAppStore && (
               <RouteButton icon="appcenter" title="App Store" link="apps" />
             )}
