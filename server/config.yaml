@@ -34,7 +34,7 @@ server:
   dockerHubUrl: https://hub.docker.com
 
 client:
-  title: KubeSphere
+  title: ProvEdge
   description: ''
 
   version:
@@ -76,11 +76,11 @@ client:
       authKey: app-templates
       authAction: manage
       ksModule: openpitrix
-    - name: settings
-      title: Platform Settings
-      icon: cogwheel
-      authKey: platform-settings
-      authAction: manage
+    # - name: settings
+    #   title: Platform Settings
+    #   icon: cogwheel
+    #   authKey: platform-settings
+    #   authAction: manage
 
   clusterNavs:
     - cate: cluster

@@ -36,7 +36,7 @@ export default class ServiceComponents extends Component {
     return [
       {
         type: 'kubesphere',
-        title: 'KubeSphere',
+        title: 'Control Plane',
       },
       {
         type: 'kubernetes',
@@ -85,11 +85,19 @@ export default class ServiceComponents extends Component {
             .map(item => (
               <span key={item.type} data-tooltip={item.title}>
                 <Link to={`/clusters/${cluster}/components?type=${item.type}`}>
-                  <Icon
-                    name={COMPONENT_ICON_MAP[item.type]}
-                    size={44}
-                    clickable
-                  />
+                  {item.type === 'kubesphere' ? (
+                    <Icon
+                      name={COMPONENT_ICON_MAP[item.type]}
+                      size={44}
+                      clickable
+                    />
+                  ) : (
+                    <Icon
+                      name={COMPONENT_ICON_MAP[item.type]}
+                      size={44}
+                      clickable
+                    />
+                  )}
                 </Link>
               </span>
             ))}

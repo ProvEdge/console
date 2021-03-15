@@ -63,25 +63,22 @@ class ProjectLayout extends Component {
       <div className="ks-page">
         <div className="ks-page-side">
           <RouteButton icon="dashboard" title="Workbench" link="dashboard" />
-          {globals.app.getGlobalNavs().map(nav =>
-            nav.name === 'projects' ? (
-              <div>
-                <Selector
-                  title={t('Projects')}
-                  detail={detail}
-                  onChange={this.handleChange}
-                />
-                <Nav
-                  className="ks-page-nav"
-                  navs={navs}
-                  location={location}
-                  match={match}
-                />
-              </div>
-            ) : (
-              <RouteButton icon={nav.icon} title={nav.title} link={nav.name} />
-            )
-          )}
+          <div>
+            <Selector
+              title={t('Projects')}
+              detail={detail}
+              onChange={this.handleChange}
+            />
+            <Nav
+              className="ks-page-nav"
+              navs={navs}
+              location={location}
+              match={match}
+            />
+          </div>
+          {globals.app.getGlobalNavs().map(nav => (
+            <RouteButton icon={nav.icon} title={nav.title} link={nav.name} />
+          ))}
           {globals.app.enableAppStore && (
             <RouteButton icon="appcenter" title="App Store" link="apps" />
           )}

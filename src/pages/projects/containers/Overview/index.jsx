@@ -25,7 +25,6 @@ import BaseInfo from './BaseInfo'
 import Applications from './Applications'
 import ResourceUsage from './ResourceUsage'
 import UsageRanking from './UsageRanking'
-import Help from './Help'
 import Quota from './Quota'
 import LimitRange from './LimitRange'
 
@@ -72,7 +71,7 @@ export default class Overview extends React.Component {
             <ResourceUsage match={this.props.match} />
           </Column>
           <Column className="is-4">
-            <Help className="margin-b12" />
+            {/* <Help className="margin-b12" /> */}
             <UsageRanking match={this.props.match} />
           </Column>
         </Columns>

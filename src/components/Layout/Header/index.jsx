@@ -20,10 +20,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { Link } from 'react-router-dom'
-import { Icon, Menu, Dropdown } from '@pitrix/lego-ui'
+import { Icon, Menu } from '@pitrix/lego-ui'
 import { isAppsPage } from 'utils'
 
-import { Button } from 'components/Base'
 import LoginInfo from '../LoginInfo'
 
 import styles from './index.scss'
@@ -106,11 +105,11 @@ class Header extends React.Component {
           </div>
         ) */}
         <div className={styles.right}>
-          {this.isLoggedIn && (
+          {/* {this.isLoggedIn && (
             <Dropdown content={this.renderDocumentList()}>
               <Button type="flat" icon="documentation" />
             </Dropdown>
-          )}
+          )} */}
           <LoginInfo className={styles.loginInfo} isAppsPage={isAppsPage()} />
         </div>
       </div>

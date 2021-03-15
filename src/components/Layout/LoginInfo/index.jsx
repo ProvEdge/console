@@ -75,9 +75,9 @@ export default class LoginInfo extends Component {
         <Menu.MenuItem key="logout">
           <Icon name="logout" /> {t('Log Out')}
         </Menu.MenuItem>
-        <Menu.MenuItem key="about">
+        {/* <Menu.MenuItem key="about">
           <Icon name="information" /> {t('About')}
-        </Menu.MenuItem>
+        </Menu.MenuItem> */}
       </Menu>
     )
   }
