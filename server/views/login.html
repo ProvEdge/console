@@ -10,7 +10,7 @@
     <title><%= title %></title>
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
     <link
-      href="/assets/fonts/Roboto/stylesheet.css"
+      href="/assets/fonts/Ubuntu/stylesheet.css"
       rel="stylesheet"
       media="all"
     />
@@ -21,78 +21,82 @@
 
   <body>
     <%- include('../public/icon.svg') %>
-    <a href="/" class="logo">
-      <img src="/assets/logo.svg" alt="" />
-    </a>
-    <div class="login">
-      <div class="login-form <%= error ? 'login-form-error' : '' %>">
-        <div class="login-header"><%= t('Please Log In') %></div>
-        <div class="login-divider"></div>
-        <% if (oauthServers) { %> <% oauthServers.forEach(function(server) { %>
-        <div class="login-oauth" data-url="<%= server.url %>">
-          <span><%= t('Log In with %s', server.title) %></span>
-        </div>
-        <% }) %> <% } %> <% if (error) { %>
-        <div class="login-error">
-          <span><%= t(error.message) %></span>
-        </div>
-        <% } %>
-        <form action="<%= loginPath %>" method="post">
-          <div class="login-form-item">
-            <label for="username"><%= t('Username or Email') %>:</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              placeholder="User@example.com"
-              autofocus
-              required
-            />
+    <div class="wrapper">
+      <div class="outline">
+        <div>
+          <div class="logo">
+            <a href="/">
+              <img src="/assets/login-logo.svg" alt="" />
+            </a>
           </div>
-          <div class="login-form-item">
-            <label for="password"><%= t('Password') %>:</label>
-            <div style="position: relative">
-              <input
-                type="password"
-                id="password"
-                placeholder="Password"
-                required
-              />
-              <svg>
-                <use xlink:href="#eye" />
-              </svg>
+          <div class="login">
+            <div class="login-form <%= error ? 'login-form-error' : '' %>">
+              <form action="<%= loginPath %>" method="post">
+                <div class="login-form-item">
+                  <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="<%= t('Username or Email') %>"
+                    autofocus
+                    required
+                  />
+                </div>
+                <div class="login-form-item">
+                  <div style="position: relative">
+                    <input
+                      type="password"
+                      id="password"
+                      placeholder="<%= t('Password') %>"
+                      required
+                    />
+                    <svg>
+                      <use xlink:href="#eye" />
+                    </svg>
+                  </div>
+                  <input type="text" id="encrypt" name="encrypt" hidden />
+                </div>
+                <% if (errorCount > 2) { %>
+                <div class="login-form-item">
+                  <label for="captcha"><%= t('Captcha')%>:</label>
+                  <div class="captcha-wrapper">
+                    <img
+                      id="captcha_img"
+                      src="/captcha?<%= new Date().getTime() %>"
+                      alt=""
+                    />
+                    <a id="refresh_captcha"><%= t('Reload Captcha') %></a>
+                    <input
+                      type="text"
+                      id="captcha"
+                      name="captcha"
+                      placeholder="<%= t('Captcha') %>"
+                      required
+                    />
+                  </div>
+                </div>
+                <% } %>
+                <% if (oauthServers) { %> <% oauthServers.forEach(function(server) { %>
+                <div class="login-oauth" data-url="<%= server.url %>">
+                  <span><%= t('Log In with %s', server.title) %></span>
+                </div>
+                <% }) %> <% } %> <% if (error) { %>
+                <div class="login-error">
+                  <span><%= t(error.message) %></span>
+                </div>
+                <% } %>
+                <div class="submit">
+                  <button type="submit">
+                    <span><%= t('Log In') %></span>
+                    <svg>
+                      <use xlink:href="#loading" />
+                    </svg>
+                  </button>
+                </div>
+              </form>
             </div>
-            <input type="text" id="encrypt" name="encrypt" hidden />
           </div>
-          <% if (errorCount > 2) { %>
-          <div class="login-form-item">
-            <label for="captcha"><%= t('Captcha')%>:</label>
-            <div class="captcha-wrapper">
-              <img
-                id="captcha_img"
-                src="/captcha?<%= new Date().getTime() %>"
-                alt=""
-              />
-              <a id="refresh_captcha"><%= t('Reload Captcha') %></a>
-              <input
-                type="text"
-                id="captcha"
-                name="captcha"
-                placeholder="<%= t('Captcha') %>"
-                required
-              />
-            </div>
-          </div>
-          <% } %>
-          <div class="submit">
-            <button type="submit">
-              <span><%= t('Log In') %></span>
-              <svg>
-                <use xlink:href="#loading" />
-              </svg>
-            </button>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
     <script>
