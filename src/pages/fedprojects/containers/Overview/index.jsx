@@ -25,7 +25,6 @@ import BaseInfo from './BaseInfo'
 import ResourceUsage from './ResourceUsage'
 import UsageRanking from './UsageRanking'
 import LimitRange from './LimitRange'
-import Help from './Help'
 
 @inject('rootStore', 'projectStore')
 @observer
@@ -94,7 +93,7 @@ export default class Overview extends React.Component {
             <ResourceUsage match={this.props.match} {...clusterProps} />
           </Column>
           <Column className="is-4">
-            <Help className="margin-b12" />
+            {/* <Help className="margin-b12" /> */}
             <UsageRanking match={this.props.match} {...clusterProps} />
           </Column>
         </Columns>

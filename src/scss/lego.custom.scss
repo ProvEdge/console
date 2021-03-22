@@ -647,13 +647,13 @@ label.checkbox {
 }
 
 .table table .table-tbody > tr > td {
-  color: $text-color;
+  color: $second-text-color;
   padding: 8px 12px;
   height: 56px;
 }
 
 .table-hasSelected > .table-title {
-  background-color: $text-color;
+  background-color: $light-color02;
 }
 
 // message

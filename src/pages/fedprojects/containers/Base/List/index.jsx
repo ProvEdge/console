@@ -20,7 +20,7 @@ import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
 
 import { renderRoutes } from 'utils/router.config'
-import { Nav } from 'components/Layout'
+import { Nav, RouteButton } from 'components/Layout'
 import Selector from 'projects/components/Selector'
 
 @inject('rootStore', 'projectStore')
@@ -43,20 +43,32 @@ export default class FederatedProjectLayout extends Component {
     return (
       <div className="ks-page">
         <div className="ks-page-side">
-          <Selector
-            title={t('Multi-cluster Projects')}
-            type="federatedprojects"
-            detail={detail}
-            workspace={match.params.workspace}
-            onChange={this.handleChange}
-            isFederated
-          />
-          <Nav
-            className="ks-page-nav"
-            navs={globals.app.getFederatedProjectNavs()}
-            location={location}
-            match={match}
-          />
+          <RouteButton icon="dashboard" title="Workbench" link="dashboard" />
+          {globals.app.getGlobalNavs().map(nav =>
+            nav.name === 'fedprojects' ? (
+              <div>
+                <Selector
+                  title={t('Multi-cluster Projects')}
+                  type="federatedprojects"
+                  detail={detail}
+                  workspace={match.params.workspace}
+                  onChange={this.handleChange}
+                  isFederated
+                />
+                <Nav
+                  className="ks-page-nav"
+                  navs={globals.app.getFederatedProjectNavs()}
+                  location={location}
+                  match={match}
+                />
+              </div>
+            ) : (
+              <RouteButton icon={nav.icon} title={nav.title} link={nav.name} />
+            )
+          )}
+          {globals.app.enableAppStore && (
+            <RouteButton icon="appcenter" title="App Store" link="apps" />
+          )}
         </div>
         <div className="ks-page-main">{renderRoutes(route.routes)}</div>
       </div>

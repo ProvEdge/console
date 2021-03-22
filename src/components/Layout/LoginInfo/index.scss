@@ -17,11 +17,7 @@
 
 .name {
   font-size: $body-size;
-  color: $title-color;
-
-  &.isAppsPage {
-    color: white;
-  }
+  color: $white;
 
   :global .icon {
     margin-top: -2px;
@@ -32,6 +28,13 @@
 
     &:last-of-type {
       margin-left: 12px;
+    }
+  }
+  
+  :global {
+    svg {
+      color: $white;
+      fill: $light-color08;
     }
   }
 }

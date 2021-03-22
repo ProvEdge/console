@@ -21,7 +21,7 @@ import { inject, observer } from 'mobx-react'
 
 import { renderRoutes } from 'utils/router.config'
 
-import { Nav } from 'components/Layout'
+import { Nav, RouteButton } from 'components/Layout'
 import Selector from 'clusters/components/Selector'
 
 @inject('rootStore', 'clusterStore')
@@ -45,18 +45,30 @@ class ClusterLayout extends Component {
     return (
       <div className="ks-page">
         <div className="ks-page-side">
-          <Selector
-            icon={detail.icon}
-            value={this.cluster}
-            onChange={this.enterCluster}
-          />
-          <Nav
-            className="ks-page-nav"
-            navs={globals.app.getClusterNavs(this.cluster)}
-            location={location}
-            match={match}
-            disabled={!detail.isReady}
-          />
+          <RouteButton icon="dashboard" title="Workbench" link="dashboard" />
+          {globals.app.getGlobalNavs().map(nav =>
+            nav.name === 'clusters' ? (
+              <div>
+                <Selector
+                  icon={detail.icon}
+                  value={this.cluster}
+                  onChange={this.enterCluster}
+                />
+                <Nav
+                  className="ks-page-nav"
+                  navs={globals.app.getClusterNavs(this.cluster)}
+                  location={location}
+                  match={match}
+                  disabled={!detail.isReady}
+                />
+              </div>
+            ) : (
+              <RouteButton icon={nav.icon} title={nav.title} link={nav.name} />
+            )
+          )}
+          {globals.app.enableAppStore && (
+            <RouteButton icon="appcenter" title="App Store" link="apps" />
+          )}
         </div>
         <div className="ks-page-main">{renderRoutes(route.routes)}</div>
       </div>

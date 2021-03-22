@@ -1,19 +1,14 @@
 @import '~scss/variables';
+@import '~scss/mixins';
 
 $content-width: 1258px;
 $toolbar-height: 52px;
-$category-width: 193px;
+$category-width: 220px;
 
 %centerItem {
   width: 100vw;
-  padding: 0 24px;
   @media (max-width: 768px) {
     width: 1024px;
-  }
-  @media (min-width: 1164px) {
-    width: $content-width;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -22,12 +17,13 @@ $category-width: 193px;
     position: relative;
     height: calc(100vh - 340px);
     @extend %centerItem;
+    margin-top: $header-height;
 
     .apps {
       position: relative;
-      margin-left: $category-width + 20px;
+      margin-left: $category-width + 68px;
       @media (max-width: 768px) {
-        margin-left: $category-width + 20px;
+        margin-left: $category-width + 68px;
       }
 
       :global {
@@ -64,7 +60,7 @@ $category-width: 193px;
   position: relative;
   height: $toolbar-height;
   background: $light-color01;
-  top: -$header-height;
+  //top: -$header-height;
 
   .level {
     display: flex;
@@ -75,7 +71,7 @@ $category-width: 193px;
       line-height: 1.67;
       font-size: $size-small;
       font-weight: bold;
-      margin-left: calc(#{$category-width} + 20px);
+      margin-left: calc(#{$category-width} + 68px);
     }
 
     .search {
@@ -94,14 +90,17 @@ $category-width: 193px;
 
 .cates {
   position: absolute;
-  top: -40px;
-  width: $category-width;
+  top: -120px;
+  width: calc(#{$category-width} + 40px);
+  height: calc(100vh - #{$header-height});
+  background-color: $nav-bg-color;
+  padding: 20px 20px 0 20px;
 
   .group {
     margin-bottom: 28px;
 
     .title {
-      color: $dark-color06;
+      color: $white;
       font-weight: bold;
     }
     .menu {
@@ -113,12 +112,12 @@ $category-width: 193px;
         line-height: 20px;
         font-size: 12px;
         list-style: none;
-        color: $dark-color07;
+        color: $white;
         cursor: pointer;
 
         &:hover,
         &.active {
-          color: $primary;
+          color: $nav-primary;
         }
 
         &.active {
@@ -131,6 +130,45 @@ $category-width: 193px;
         .icon {
           vertical-align: middle;
         }
+      }
+    }
+  }
+
+  .titleWrapper {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: $border-radius;
+    background-color: $white;
+    box-shadow: 0 8px 16px 0 rgba(36, 46, 66, 0.2);
+
+    .icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
+
+      svg {
+        color: $dark-color03;
+        fill: $dark-color01;
+      }
+    }
+
+    .text {
+      display: inline-block;
+      vertical-align: middle;
+      width: calc(100% - 60px);
+
+      :global .h6 {
+        font-family: $font-family-id;
+        line-height: 1.43;
+        color: $dark-color06;
+        @include ellipsis;
+      }
+
+      p {
+        color: $dark-color04;
       }
     }
   }
