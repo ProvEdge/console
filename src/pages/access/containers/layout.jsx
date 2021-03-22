@@ -21,7 +21,7 @@ import { get } from 'lodash'
 
 import { renderRoutes, getIndexRoute } from 'utils/router.config'
 
-import { Nav } from 'components/Layout'
+import { Nav, RouteButton } from 'components/Layout'
 import { Icon } from '@pitrix/lego-ui'
 
 import styles from './layout.scss'
@@ -35,21 +35,33 @@ class AccessLayout extends Component {
     return (
       <>
         <div className="ks-page-side">
-          <div className={styles.titleWrapper}>
-            <div className={styles.icon}>
-              <Icon name="key" size={40} type="light" />
-            </div>
-            <div className={styles.text}>
-              <div className="h6">{t('Access Control')}</div>
-              <p>{t('Platform-level Access Control')}</p>
-            </div>
-          </div>
-          <Nav
-            className="ks-page-nav"
-            navs={navs}
-            location={location}
-            match={match}
-          />
+          <RouteButton icon="dashboard" title="Workbench" link="dashboard" />
+          {globals.app.getGlobalNavs().map(nav =>
+            nav.name === 'access' ? (
+              <div>
+                <div className={styles.titleWrapper}>
+                  <div className={styles.icon}>
+                    <Icon name="key" size={40} type="light" />
+                  </div>
+                  <div className={styles.text}>
+                    <div className="h6">{t('Access Control')}</div>
+                    <p>{t('Platform-level Access Control')}</p>
+                  </div>
+                </div>
+                <Nav
+                  className="ks-page-nav"
+                  navs={navs}
+                  location={location}
+                  match={match}
+                />
+              </div>
+            ) : (
+              <RouteButton icon={nav.icon} title={nav.title} link={nav.name} />
+            )
+          )}
+          {globals.app.enableAppStore && (
+            <RouteButton icon="appcenter" title="App Store" link="apps" />
+          )}
         </div>
         <div className="ks-page-main">
           {renderRoutes([

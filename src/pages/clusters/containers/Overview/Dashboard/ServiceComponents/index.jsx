@@ -36,7 +36,7 @@ export default class ServiceComponents extends Component {
     return [
       {
         type: 'kubesphere',
-        title: 'KubeSphere',
+        title: 'Control Plane',
       },
       {
         type: 'kubernetes',
@@ -82,17 +82,23 @@ export default class ServiceComponents extends Component {
         <div className={styles.icons}>
           {this.configs
             .filter(item => !item.disabled)
-            .map(item => (
-              <span key={item.type} data-tooltip={item.title}>
-                <Link to={`/clusters/${cluster}/components?type=${item.type}`}>
-                  <Icon
-                    name={COMPONENT_ICON_MAP[item.type]}
-                    size={44}
-                    clickable
-                  />
-                </Link>
-              </span>
-            ))}
+            .map(item =>
+              item.type !== 'kubesphere' ? (
+                <span key={item.type} data-tooltip={item.title}>
+                  <Link
+                    to={`/clusters/${cluster}/components?type=${item.type}`}
+                  >
+                    <Icon
+                      name={COMPONENT_ICON_MAP[item.type]}
+                      size={44}
+                      clickable
+                    />
+                  </Link>
+                </span>
+              ) : (
+                <></>
+              )
+            )}
         </div>
       </Panel>
     )

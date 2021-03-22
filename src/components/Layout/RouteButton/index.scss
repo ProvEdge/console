@@ -1,0 +1,54 @@
+@import '~scss/variables';
+@import '~scss/mixins';
+
+.routeButton {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 12px;
+  border-radius: $border-radius;
+  background-color: $nav-bg-color;
+  cursor: pointer;
+  transition: all $trans-speed ease-in-out;
+
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+	  margin-left: 16px;
+
+    svg {
+      color: $white;
+      fill: $light-color08;
+    }
+  }
+
+  .title {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 60px);
+	  color: $white;
+	  font-family: $font-family-id;
+	  font-size: 12px;
+	  font-weight: 600;
+    line-height: 1.43;
+
+    @include ellipsis;
+  }
+
+  &:hover {
+    background-color: $white;
+
+    .title {
+      color: $dark-color06;
+    }
+
+    .icon {
+      svg {
+        color: $dark-color01;
+        fill: $dark-color06;
+      }
+    }
+	}
+} 

@@ -23,7 +23,7 @@ const { login, oAuthLogin } = require('../services/session')
 const { renderLogin } = require('./view')
 const {
   isValidReferer,
-  isAppsRoute,
+  /* isAppsRoute, */
   decryptPassword,
 } = require('../libs/utils')
 
@@ -147,13 +147,9 @@ const handleLogout = async ctx => {
   ctx.cookies.set('refreshToken', null)
   ctx.cookies.set('currentUser', null)
 
-  const { origin = '', referer = '' } = ctx.headers
-  const refererPath = referer.replace(origin, '')
-  if (isAppsRoute(refererPath)) {
-    ctx.redirect(refererPath)
-  } else {
-    ctx.redirect('/login')
-  }
+  /* const { origin = '', referer = '' } = ctx.headers
+  const refererPath = referer.replace(origin, '') */
+  ctx.redirect('/login')
 }
 
 const handleOAuthLogin = async ctx => {
