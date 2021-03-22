@@ -65,14 +65,14 @@
       padding-right: 80px;
       flex-grow: 1;
       & > :first-child {
-        font-family: $font-family-id;
+        font-family: $font-family;
         font-size: 12px;
         font-weight: bold;
         line-height: 1.67;
         color: $dark-color07;
       }
       & > :last-child {
-        font-family: $font-family-id;
+        font-family: $font-family;
         font-size: 12px;
         line-height: 1.67;
         color: $dark-color01;
@@ -163,7 +163,7 @@
 .message {
   margin-top: 12px;
   height: 20px;
-  font-family: $font-family-id;
+  font-family: $font-family;
   color: $dark-color01;
 }
 

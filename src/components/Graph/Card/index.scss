@@ -28,7 +28,7 @@
   background-color: $lightest;
 
   & > p {
-    font-family: $font-family-id;
+    font-family: $font-family;
     font-weight: $font-bold;
     line-break: 1.67;
 
@@ -45,13 +45,13 @@
 
 .componentName {
   margin-top: 8px;
-  font-family: $font-family-id;
+  font-family: $font-family;
   font-weight: $font-bold;
   line-height: 1.67;
 }
 
 .gatewayName {
-  font-family: $font-family-id;
+  font-family: $font-family;
   font-weight: $font-bold;
   line-height: 1.67;
 
@@ -65,7 +65,7 @@
   padding: 2px 8px 2px 2px;
   border-radius: 3px;
   background-color: $bg-color;
-  font-family: $font-family-id;
+  font-family: $font-family;
   font-weight: $font-bold;
   line-height: 16px;
 

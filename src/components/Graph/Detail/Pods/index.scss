@@ -17,7 +17,7 @@
   padding: 2px 8px 2px 2px;
   border-radius: 3px;
   background-color: $bg-color;
-  font-family: $font-family-id;
+  font-family: $font-family;
   font-weight: $font-bold;
   line-height: 16px;
 
@@ -50,7 +50,7 @@
   background-color: #ffffff;
 
   .text {
-    font-family: $font-family-id;
+    font-family: $font-family;
     margin-left: 14px;
 
     & > p {

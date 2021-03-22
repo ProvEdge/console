@@ -56,7 +56,7 @@
 }
 
 @mixin TypographyTitle($fontWeight: $font-bold) {
-  font-family: $font-family-id;
+  font-family: $font-family;
   font-style: normal;
   font-stretch: normal;
   letter-spacing: normal;
@@ -128,7 +128,7 @@
 }
 
 @mixin TypographyParagraph($color: $dark-color07) {
-  font-family: $font-family-id;
+  font-family: $font-family;
   font-size: $size-small;
   font-weight: normal;
   font-style: normal;
