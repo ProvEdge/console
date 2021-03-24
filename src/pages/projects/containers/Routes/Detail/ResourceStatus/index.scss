@@ -10,7 +10,7 @@
   & > div {
     display: inline-block;
     vertical-align: middle;
-    font-family: $font-family-id;
+    font-family: $font-family;
     color: #5f708a;
 
     & + div {
@@ -27,7 +27,7 @@
   }
 
   strong {
-    font-family: $font-family-id;
+    font-family: $font-family;
     font-size: $size-normal;
     font-weight: bold;
     line-height: 1.43;
@@ -59,7 +59,7 @@
   display: inline-block;
   margin-left: 20px;
   margin-right: 20px;
-  font-family: $font-family-id;
+  font-family: $font-family;
   font-size: $size-normal;
   font-weight: $font-bold;
   line-height: 1.43;
@@ -98,7 +98,7 @@
     color: $second-text-color;
 
     strong {
-      font-family: $font-family-id;
+      font-family: $font-family;
       font-size: $size-normal;
       line-height: 1.43;
       color: $text-color;

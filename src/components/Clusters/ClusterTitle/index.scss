@@ -50,7 +50,7 @@
   .name {
     @include TypographyTitleH4($dark-color07);
     text-shadow: 0 4px 8px rgba(36, 46, 66, 0.1);
-    font-family: $font-family-id;
+    font-family: $font-family;
   }
 }
 

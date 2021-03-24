@@ -54,7 +54,7 @@
     @include ellipsis;
     font-weight: $font-bold;
     font-size: $size-normal;
-    font-family: $font-family-id;
+    font-family: $font-family;
     z-index: 1;
   }
 
@@ -97,7 +97,7 @@
     border: solid 1px #d8dee5;
     background-color: #ffffff;
     font-weight: $font-bold;
-    font-family: $font-family-id;
+    font-family: $font-family;
     line-height: 16px;
   }
 
@@ -119,7 +119,7 @@
       background-color: $bg-color;
       line-height: 16px;
       font-weight: $font-bold;
-      font-family: $font-family-id;
+      font-family: $font-family;
 
       &:last-child {
         margin-right: 0;

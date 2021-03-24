@@ -31,7 +31,7 @@
     width: 124px;
 
     :global .h6 {
-      font-family: $font-family-id;
+      font-family: $font-family;
       line-height: 1.43;
       color: #ffffff;
       @include ellipsis;

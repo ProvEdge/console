@@ -123,7 +123,7 @@ input.input {
   border-radius: 4px;
   line-height: 20px;
   padding: 6px 12px 4px 12px;
-  font-family: $font-family-id;
+  font-family: $font-family;
   font-size: $body-size;
   font-weight: $font-bold;
   border-color: $input-border-color;
@@ -153,7 +153,7 @@ input.input {
 .textarea {
   font-size: $body-size;
   font-weight: $font-bold;
-  font-family: $font-family-id;
+  font-family: $font-family;
   color: $text-color;
   caret-color: $text-color;
   border-radius: 4px;
@@ -519,7 +519,7 @@ label.checkbox {
   color: $second-text-color;
   line-height: 1.67;
   font-weight: 600;
-  font-family: $font-family-id;
+  font-family: $font-family;
 
   .qicon-dark {
     color: $second-text-color;

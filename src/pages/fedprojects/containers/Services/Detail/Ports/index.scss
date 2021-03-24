@@ -19,7 +19,7 @@
   .protocol {
     display: inline-block;
     vertical-align: middle;
-    font-family: $font-family-id;
+    font-family: $font-family;
     color: #5f708a;
     margin-right: 20px;
   }
@@ -37,7 +37,7 @@
   }
 
   strong {
-    font-family: $font-family-id;
+    font-family: $font-family;
     font-size: $size-normal;
     font-weight: bold;
     line-height: 1.43;
