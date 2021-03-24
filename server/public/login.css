@@ -68,6 +68,7 @@ svg {
   padding: 15px;
   background-color: #0d0d28;
   border-radius: 6px;
+  transform: translateY(-102px);
 }
 
 .logo {
