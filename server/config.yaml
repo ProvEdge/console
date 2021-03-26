@@ -244,6 +244,10 @@ client:
             ksModule: devops,
             skipAuth: true,
           }
+        - name: imagerepositories
+          title: Image Repositories
+        - name: sourcerepositories
+          title: Source Repositories
         - name: apps
           title: Apps Management
           icon: appcenter
