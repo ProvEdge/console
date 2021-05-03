@@ -16,33 +16,15 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import MemberDetail from '../containers/Members/Detail'
-import RoleDetail from '../containers/Roles/Detail'
-import AppDetail from '../containers/Apps/Detail'
-import RepoDetail from '../containers/Repos/Detail'
-import ImageDetail from '../containers/ImageRepos/Detail'
+import Artifacts from './Artifacts'
 
-const PATH = '/workspaces/:workspace'
+const PATH = '/workspaces/:workspace/imagerepos/:name'
 
 export default [
   {
-    path: `${PATH}/members/:name`,
-    component: MemberDetail,
-  },
-  {
-    path: `${PATH}/roles/:name`,
-    component: RoleDetail,
-  },
-  {
-    path: `${PATH}/apps/:appId`,
-    component: AppDetail,
-  },
-  {
-    path: `${PATH}/repos/:repo_id`,
-    component: RepoDetail,
-  },
-  {
-    path: `${PATH}/imagerepos/:image_id`,
-    component: ImageDetail,
+    path: `${PATH}`,
+    title: 'Artifacts',
+    component: Artifacts,
+    exact: true,
   },
 ]

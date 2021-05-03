@@ -28,6 +28,8 @@ import FedProjects from '../containers/FedProjects'
 import DevOps from '../containers/DevOps'
 import Apps from '../containers/Apps'
 import Repos from '../containers/Repos'
+import ImageRepos from '../containers/ImageRepos'
+import SourceRepos from '../containers/SourceRepos'
 
 import detail from './detail'
 import overviewRoutes from './overview'
@@ -54,6 +56,16 @@ export default [
       {
         path: `${PATH}/devops`,
         component: DevOps,
+        exact: true,
+      },
+      {
+        path: `${PATH}/imagerepos`,
+        component: ImageRepos,
+        exact: true,
+      },
+      {
+        path: `${PATH}/sourcerepos`,
+        component: SourceRepos,
         exact: true,
       },
       {
